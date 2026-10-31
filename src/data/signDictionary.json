@@ -1,5 +1,21 @@
 [
   {
+    "id": "hello-today-learn-sign-language",
+    "lessonId": "science-plants",
+    "phrase": "hello today we will learn about sign language",
+    "aliases": [
+      "hello today we will learn sign language",
+      "hello today we learn sign language",
+      "today we will learn about sign language",
+      "hello today we will learn about sign language",
+      "today we will learn sign language",
+      "learn about sign language",
+      "hello sign language"
+    ],
+    "video": "/signs/hello-today-we-will-learn-sign-language.mp4",
+    "reviewed": true
+  },
+  {
     "id": "plants-need-sunlight",
     "lessonId": "science-plants",
     "phrase": "plants need sunlight",
