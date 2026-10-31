@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useCallback } from "react";
 import ScrollAnimation from "./ScrollAnimation";
 import Wordmark from "./Wordmark";
 import Nav from "./Nav";
@@ -6,24 +6,12 @@ import Nav from "./Nav";
 /**
  * Landing / hero section shown before the classroom.
  * Contains the scroll-driven frame animation and a CTA.
- * VISUAL REBRAND ONLY — scroll animation logic untouched.
+ * The animation owns its local scroll progress so copy and frames stay in sync.
  */
 export default function LandingPage({ onEnter }) {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const wrapperRef = useRef(null);
-
-  // Track scroll progress for copy fade
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight > 0) {
-        setScrollProgress(scrollY / docHeight);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+  const handleAnimationProgress = useCallback((progress) => {
+    setScrollProgress(progress);
   }, []);
 
   // Compute copy visibility
@@ -38,7 +26,7 @@ export default function LandingPage({ onEnter }) {
   const stage2Y = scrollProgress > 0.3 ? Math.max(0, (0.4 - scrollProgress) * 100) : 20;
 
   return (
-    <section className="landing" ref={wrapperRef}>
+    <section className="landing">
       <Nav onEnter={onEnter} />
 
       {/* Hero with wordmark */}
@@ -51,7 +39,7 @@ export default function LandingPage({ onEnter }) {
 
       {/* Scroll-driven animation — core logic untouched */}
       <div className="scroll-scene-container">
-        <ScrollAnimation />
+        <ScrollAnimation onProgress={handleAnimationProgress} />
 
         {/* Sticky overlay for scroll-linked copy */}
         <div className="scroll-copy-sticky">
@@ -83,6 +71,20 @@ export default function LandingPage({ onEnter }) {
               Students see each word signed on screen as the lesson unfolds.
             </p>
           </div>
+        </div>
+
+        <div
+          className="landing-scroll-copy stage-3"
+          style={{
+            opacity: scrollProgress > 0.72 ? Math.min(1, (scrollProgress - 0.72) / 0.1) : 0,
+            transform: `translateY(${scrollProgress > 0.72 ? Math.max(0, (0.82 - scrollProgress) * 100) : 24}px)`,
+          }}
+        >
+          <p className="eyebrow">Every learner included</p>
+          <p>
+            One shared classroom, with communication that keeps moving at the
+            pace of the lesson.
+          </p>
         </div>
       </div>
 

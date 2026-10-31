@@ -8,7 +8,7 @@ const framePaths = Array.from({ length: TOTAL_FRAMES }, (_, i) => {
   return `/animation/ezgif-frame-${num}.png`;
 });
 
-export default function ScrollAnimation() {
+export default function ScrollAnimation({ onProgress }) {
   const wrapperRef = useRef(null);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +52,7 @@ export default function ScrollAnimation() {
 
         setProgress(pct);
         setCurrentFrame(idx);
+        onProgress?.(pct);
       });
     };
 
@@ -63,7 +64,7 @@ export default function ScrollAnimation() {
       window.removeEventListener("resize", handleScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [onProgress]);
 
   const frameNumber = String(currentFrame + 1).padStart(3, "0");
   const src = `/animation/ezgif-frame-${frameNumber}.png`;
