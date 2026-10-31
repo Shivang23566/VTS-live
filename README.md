@@ -2,12 +2,56 @@
 
 ShikshaSign Live is a browser-based classroom accessibility tool for the
 GRAVITON 2026 Problem Statement #30. It converts a teacher's English or Hindi
-speech into live captions and plays only pre-approved Indian Sign Language
-(ISL) clips for concepts in the selected lesson.
+speech into live captions. The default view now streams skeletal coordinates
+from Python into a WebGL ASL avatar. A separately labeled legacy mode plays
+the existing Indian Sign Language (ISL) lesson clips.
 
-## MVP starter
+## Live ASL avatar
 
-The starter is intentionally local-first:
+The avatar supports **101 distinct daily-use signs**, **117 English aliases**
+and **135 Hindi aliases**. Search its vocabulary for greetings, food/drinks,
+family, feelings, objects, actions, places, questions and time. Try `I want water`,
+`I want a pencil`, `मुझे दूध चाहिए`, or individual words such as `mother` and `coffee`.
+
+The decoupled pipeline is: final transcript → sltAI-compatible ASL gloss adapter
+→ SQLite landmark library → WebSocket frame chunks → articulated WebGL avatar.
+Adaptive filtering, interpolation and short transitions smooth motion; the UI
+provides playback speed controls. The avatar has individual finger bones.
+
+This is an **experimental vocabulary composer**, not a trained general ASL
+translation model. Unknown words remain captions-only. Sentence grammar and
+facial expressions need further model/expert work. No PSL data or provider is used.
+
+See [ANIMATION_ARCHITECTURE.md](./ANIMATION_ARCHITECTURE.md) for module boundaries,
+protocol, configuration and limitations; [data provenance](./backend/data/README.md)
+identifies the actual ASLLVD source and provisional playback timing.
+
+### Start the complete app
+
+Use Python **3.11**. The local `sltai/sign-language-translator` checkout must
+exist (version 0.8.1, inspected revision `cca5f3a`). Run from the repository root:
+
+```powershell
+uv venv --python 3.11 .venv
+uv pip install --python .venv/Scripts/python.exe -r requirements.txt pytest httpx
+.venv/Scripts/python.exe -m backend.scripts.prepare_asl --download
+.venv/Scripts/python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+```
+
+Preparation downloads about 264 MB once and imports the selected ASL poses.
+The environment and data are already prepared in this workspace. In a second terminal:
+
+```powershell
+npm.cmd install
+npm.cmd run dev -- --host 127.0.0.1 --port 5173 --strictPort
+```
+
+Open `http://127.0.0.1:5173`, enter the classroom and use **Try the live ASL avatar**.
+The text test needs no microphone; live speech uses Chrome/Edge recognition.
+
+## Legacy ISL video library
+
+The original video mode remains local-first:
 
 - React + Vite frontend
 - Browser Web Speech API for transcription
@@ -24,7 +68,7 @@ npm install
 npm run dev
 ```
 
-### Install optional backend dependencies
+### Backend dependencies
 
 From the repository root:
 
@@ -32,9 +76,9 @@ From the repository root:
 python -m pip install -r requirements.txt
 ```
 
-The root requirements file delegates to
-[`backend/requirements.txt`](./backend/requirements.txt). The FastAPI service
-is optional for the local-first MVP.
+The root requirements file installs FastAPI and local sltAI. Python is required
+for the ASL avatar, but not for the legacy video library. See
+[`backend/README.md`](./backend/README.md).
 
 Open the printed local URL in Chrome or Edge, allow microphone access, select
 English or Hindi, and start the lecture. The browser Speech Recognition API is
@@ -45,7 +89,7 @@ paths in [`src/data/signDictionary.json`](./src/data/signDictionary.json).
 
 ## Try the supplied video dataset
 
-Open **Enter classroom**, leave **2D Animation** selected, choose **English**,
+Open **Enter classroom**, choose **Switch to ISL video library**, choose **English**,
 then click **Start lecture** and allow microphone access. Speak any of these
 complete titles:
 
@@ -74,22 +118,23 @@ for up to 12 seconds between results. Start/stop and language changes reset thes
 unfinished fragments. The supplied titles are English; Hindi transcription still
 works for captions, but no Hindi title aliases have been added.
 
-Both display modes share a playback queue. New matches wait for the current clip
-to finish; repeated titles can play again. Videos start muted, preserve their
+The ISL video mode has its own playback queue. New matches wait for the current
+clip to finish; repeated titles can play again. Videos start muted, preserve their
 full aspect ratio, and expose playback controls. A blocked autoplay request shows
 a **Play animation** button; a failed media file is reported and skipped. **Stop
-lecture** also clears playback. Switching display modes retains queued clips but
-restarts the current clip in the newly selected view.
+lecture** also clears playback. Switching between ASL animation and ISL video
+clears both queues to avoid mixing sign languages or replaying stale motion.
 
 ### Validate the core
 
 ```bash
 npm test
 npm run build
+.venv/Scripts/python.exe -m pytest backend/tests -q
 ```
 
-The tests cover title matching, split speech results, missing/invalid assets,
-playback order, repeated titles, and stale completion events.
+Tests cover legacy title matching/playback plus ASL vocabulary, imported
+landmarks, streaming order, cancellation, invalid data and motion smoothing.
 
 ## Repository map
 

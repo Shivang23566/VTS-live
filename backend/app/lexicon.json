@@ -1,0 +1,1259 @@
+{
+  "sign_language": "asl",
+  "quality": "experimental-vocabulary",
+  "entries": [
+    {
+      "gloss": "HELLO",
+      "label": "hello",
+      "en": [
+        "hello",
+        "hi"
+      ],
+      "hi": [
+        "नमस्ते"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "GOOD-MORNING",
+      "label": "good_morning",
+      "en": [
+        "good morning"
+      ],
+      "hi": [
+        "सुप्रभात"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "MORNING",
+      "label": "morning",
+      "en": [
+        "morning"
+      ],
+      "hi": [
+        "सुबह"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "BOOK",
+      "label": "book",
+      "en": [
+        "book",
+        "books"
+      ],
+      "hi": [
+        "किताब",
+        "किताबें",
+        "पुस्तक"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "DRINK",
+      "label": "drink",
+      "en": [
+        "drink",
+        "drinking"
+      ],
+      "hi": [
+        "पीना"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "EAT",
+      "label": "eat",
+      "en": [
+        "eat",
+        "eating"
+      ],
+      "hi": [
+        "खाना"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "LIKE",
+      "label": "like",
+      "en": [
+        "like"
+      ],
+      "hi": [
+        "पसंद"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "LEARN",
+      "label": "learn",
+      "en": [
+        "learn",
+        "learning"
+      ],
+      "hi": [
+        "सीखना"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "I",
+      "label": "ix_1p",
+      "en": [
+        "i",
+        "me"
+      ],
+      "hi": [
+        "मैं"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "NAME",
+      "label": "name",
+      "en": [
+        "name"
+      ],
+      "hi": [
+        "नाम"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "SCHOOL",
+      "label": "school",
+      "en": [
+        "school"
+      ],
+      "hi": [
+        "स्कूल",
+        "विद्यालय"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "SIT",
+      "label": "sit",
+      "en": [
+        "sit",
+        "sit down"
+      ],
+      "hi": [
+        "बैठो",
+        "बैठिए"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "SUN",
+      "label": "sun",
+      "en": [
+        "sun"
+      ],
+      "hi": [
+        "सूरज",
+        "सूर्य"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "WANT",
+      "label": "want",
+      "en": [
+        "want"
+      ],
+      "hi": [
+        "चाहना"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "WATER",
+      "label": "water",
+      "en": [
+        "water"
+      ],
+      "hi": [
+        "पानी",
+        "जल"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "YES",
+      "label": "yes",
+      "en": [
+        "yes"
+      ],
+      "hi": [
+        "हाँ",
+        "हां"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "SORRY",
+      "label": "sorry",
+      "en": [
+        "sorry"
+      ],
+      "hi": [
+        "माफ़ कीजिए",
+        "माफ करना"
+      ],
+      "category": "greetings"
+    },
+    {
+      "gloss": "WELCOME",
+      "label": "welcome",
+      "en": [
+        "welcome"
+      ],
+      "hi": [
+        "स्वागत"
+      ],
+      "category": "greetings"
+    },
+    {
+      "gloss": "WHAT",
+      "label": "what",
+      "en": [
+        "what"
+      ],
+      "hi": [
+        "क्या"
+      ],
+      "category": "questions"
+    },
+    {
+      "gloss": "WHERE",
+      "label": "where",
+      "en": [
+        "where"
+      ],
+      "hi": [
+        "कहाँ",
+        "कहां"
+      ],
+      "category": "questions"
+    },
+    {
+      "gloss": "WHEN",
+      "label": "when",
+      "en": [
+        "when"
+      ],
+      "hi": [
+        "कब"
+      ],
+      "category": "questions"
+    },
+    {
+      "gloss": "WHY",
+      "label": "why",
+      "en": [
+        "why"
+      ],
+      "hi": [
+        "क्यों"
+      ],
+      "category": "questions"
+    },
+    {
+      "gloss": "HOW",
+      "label": "how",
+      "en": [
+        "how"
+      ],
+      "hi": [
+        "कैसे"
+      ],
+      "category": "questions"
+    },
+    {
+      "gloss": "WHO",
+      "label": "who",
+      "en": [
+        "who"
+      ],
+      "hi": [
+        "कौन"
+      ],
+      "category": "questions"
+    },
+    {
+      "gloss": "AGAIN",
+      "label": "again",
+      "en": [
+        "again"
+      ],
+      "hi": [
+        "फिर से",
+        "दोबारा"
+      ],
+      "category": "everyday"
+    },
+    {
+      "gloss": "STOP",
+      "label": "stop",
+      "en": [
+        "stop"
+      ],
+      "hi": [
+        "रुको",
+        "रुकिए"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "STAND",
+      "label": "stand",
+      "en": [
+        "stand"
+      ],
+      "hi": [
+        "खड़े हो",
+        "खड़े हो जाओ"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "WALK",
+      "label": "walk",
+      "en": [
+        "walk"
+      ],
+      "hi": [
+        "चलना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "RUN",
+      "label": "run",
+      "en": [
+        "run"
+      ],
+      "hi": [
+        "दौड़ना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "GO",
+      "label": "go",
+      "en": [
+        "go"
+      ],
+      "hi": [
+        "जाओ",
+        "जाना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "COME",
+      "label": "come",
+      "en": [
+        "come"
+      ],
+      "hi": [
+        "आओ",
+        "आइए",
+        "आना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "THIRSTY",
+      "label": "thirsty",
+      "en": [
+        "thirsty"
+      ],
+      "hi": [
+        "प्यासा",
+        "प्यासी"
+      ],
+      "category": "feelings"
+    },
+    {
+      "gloss": "BREAD",
+      "label": "bread",
+      "en": [
+        "bread"
+      ],
+      "hi": [
+        "ब्रेड"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "MILK",
+      "label": "milk",
+      "en": [
+        "milk"
+      ],
+      "hi": [
+        "दूध"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "TEA",
+      "label": "tea",
+      "en": [
+        "tea"
+      ],
+      "hi": [
+        "चाय"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "COFFEE",
+      "label": "coffee",
+      "en": [
+        "coffee"
+      ],
+      "hi": [
+        "कॉफी"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "APPLE",
+      "label": "apple",
+      "en": [
+        "apple",
+        "apples"
+      ],
+      "hi": [
+        "सेब"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "BANANA",
+      "label": "banana",
+      "en": [
+        "banana",
+        "bananas"
+      ],
+      "hi": [
+        "केला"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "ORANGE",
+      "label": "orange",
+      "en": [
+        "orange"
+      ],
+      "hi": [
+        "संतरा"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "EGG",
+      "label": "egg",
+      "en": [
+        "egg",
+        "eggs"
+      ],
+      "hi": [
+        "अंडा"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "FRUIT",
+      "label": "fruit",
+      "en": [
+        "fruit"
+      ],
+      "hi": [
+        "फल"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "VEGETABLE",
+      "label": "vegetable",
+      "en": [
+        "vegetable",
+        "vegetables"
+      ],
+      "hi": [
+        "सब्जी",
+        "सब्ज़ी"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "MEAT",
+      "label": "meat",
+      "en": [
+        "meat"
+      ],
+      "hi": [
+        "मांस"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "FISH",
+      "label": "fish",
+      "en": [
+        "fish"
+      ],
+      "hi": [
+        "मछली"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "POTATO",
+      "label": "potato",
+      "en": [
+        "potato",
+        "potatoes"
+      ],
+      "hi": [
+        "आलू"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "TOMATO",
+      "label": "tomato",
+      "en": [
+        "tomato",
+        "tomatoes"
+      ],
+      "hi": [
+        "टमाटर"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "SALT",
+      "label": "salt",
+      "en": [
+        "salt"
+      ],
+      "hi": [
+        "नमक"
+      ],
+      "category": "food"
+    },
+    {
+      "gloss": "HOT",
+      "label": "hot",
+      "en": [
+        "hot"
+      ],
+      "hi": [
+        "गर्म"
+      ],
+      "category": "descriptions"
+    },
+    {
+      "gloss": "COLD",
+      "label": "cold",
+      "en": [
+        "cold"
+      ],
+      "hi": [
+        "ठंडा",
+        "ठंडी"
+      ],
+      "category": "descriptions"
+    },
+    {
+      "gloss": "WARM",
+      "label": "warm",
+      "en": [
+        "warm"
+      ],
+      "hi": [
+        "गुनगुना"
+      ],
+      "category": "descriptions"
+    },
+    {
+      "gloss": "HOME",
+      "label": "home",
+      "en": [
+        "home"
+      ],
+      "hi": [
+        "घर"
+      ],
+      "category": "places"
+    },
+    {
+      "gloss": "HOUSE",
+      "label": "house",
+      "en": [
+        "house"
+      ],
+      "hi": [
+        "मकान"
+      ],
+      "category": "places"
+    },
+    {
+      "gloss": "DOOR",
+      "label": "door",
+      "en": [
+        "door"
+      ],
+      "hi": [
+        "दरवाज़ा",
+        "दरवाजा"
+      ],
+      "category": "objects"
+    },
+    {
+      "gloss": "WINDOW",
+      "label": "window",
+      "en": [
+        "window"
+      ],
+      "hi": [
+        "खिड़की"
+      ],
+      "category": "objects"
+    },
+    {
+      "gloss": "TABLE",
+      "label": "table",
+      "en": [
+        "table"
+      ],
+      "hi": [
+        "मेज़",
+        "मेज"
+      ],
+      "category": "objects"
+    },
+    {
+      "gloss": "BED",
+      "label": "bed",
+      "en": [
+        "bed"
+      ],
+      "hi": [
+        "बिस्तर"
+      ],
+      "category": "objects"
+    },
+    {
+      "gloss": "READ",
+      "label": "read",
+      "en": [
+        "read"
+      ],
+      "hi": [
+        "पढ़ना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "WRITE",
+      "label": "write",
+      "en": [
+        "write"
+      ],
+      "hi": [
+        "लिखना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "PAPER",
+      "label": "paper",
+      "en": [
+        "paper"
+      ],
+      "hi": [
+        "कागज़",
+        "कागज"
+      ],
+      "category": "objects"
+    },
+    {
+      "gloss": "PENCIL",
+      "label": "pencil",
+      "en": [
+        "pencil",
+        "pencils"
+      ],
+      "hi": [
+        "पेंसिल"
+      ],
+      "category": "objects"
+    },
+    {
+      "gloss": "WORK",
+      "label": "work",
+      "en": [
+        "work"
+      ],
+      "hi": [
+        "काम"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "PLAY",
+      "label": "play",
+      "en": [
+        "play"
+      ],
+      "hi": [
+        "खेलना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "SLEEP",
+      "label": "sleep",
+      "en": [
+        "sleep"
+      ],
+      "hi": [
+        "सोना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "HAVE",
+      "label": "have",
+      "en": [
+        "have"
+      ],
+      "hi": [
+        "पास होना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "GIVE",
+      "label": "give",
+      "en": [
+        "give"
+      ],
+      "hi": [
+        "दो",
+        "देना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "TAKE",
+      "label": "take",
+      "en": [
+        "take"
+      ],
+      "hi": [
+        "लो",
+        "लेना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "SEE",
+      "label": "see",
+      "en": [
+        "see"
+      ],
+      "hi": [
+        "देखना",
+        "देखो"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "TALK",
+      "label": "talk",
+      "en": [
+        "talk"
+      ],
+      "hi": [
+        "बात करना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "UNDERSTAND",
+      "label": "understand",
+      "en": [
+        "understand"
+      ],
+      "hi": [
+        "समझना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "KNOW",
+      "label": "know",
+      "en": [
+        "know"
+      ],
+      "hi": [
+        "जानना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "FORGET",
+      "label": "forget",
+      "en": [
+        "forget"
+      ],
+      "hi": [
+        "भूलना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "REMEMBER",
+      "label": "remember",
+      "en": [
+        "remember"
+      ],
+      "hi": [
+        "याद करना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "THINK",
+      "label": "think",
+      "en": [
+        "think"
+      ],
+      "hi": [
+        "सोचना"
+      ],
+      "category": "actions"
+    },
+    {
+      "gloss": "HAPPY",
+      "label": "happy",
+      "en": [
+        "happy"
+      ],
+      "hi": [
+        "खुश"
+      ],
+      "category": "feelings"
+    },
+    {
+      "gloss": "SAD",
+      "label": "sad",
+      "en": [
+        "sad"
+      ],
+      "hi": [
+        "दुखी",
+        "उदास"
+      ],
+      "category": "feelings"
+    },
+    {
+      "gloss": "TIRED",
+      "label": "tired",
+      "en": [
+        "tired"
+      ],
+      "hi": [
+        "थका",
+        "थकी"
+      ],
+      "category": "feelings"
+    },
+    {
+      "gloss": "SICK",
+      "label": "sick",
+      "en": [
+        "sick"
+      ],
+      "hi": [
+        "बीमार"
+      ],
+      "category": "feelings"
+    },
+    {
+      "gloss": "HURT",
+      "label": "hurt",
+      "en": [
+        "hurt"
+      ],
+      "hi": [
+        "चोट"
+      ],
+      "category": "feelings"
+    },
+    {
+      "gloss": "FRIEND",
+      "label": "friend",
+      "en": [
+        "friend",
+        "friends"
+      ],
+      "hi": [
+        "दोस्त",
+        "मित्र"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "FAMILY",
+      "label": "family",
+      "en": [
+        "family"
+      ],
+      "hi": [
+        "परिवार"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "MOTHER",
+      "label": "mother",
+      "en": [
+        "mother"
+      ],
+      "hi": [
+        "माँ",
+        "मां",
+        "माता"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "FATHER",
+      "label": "father",
+      "en": [
+        "father"
+      ],
+      "hi": [
+        "पिता",
+        "पापा"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "SISTER",
+      "label": "sister",
+      "en": [
+        "sister"
+      ],
+      "hi": [
+        "बहन"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "BROTHER",
+      "label": "brother",
+      "en": [
+        "brother"
+      ],
+      "hi": [
+        "भाई"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "BABY",
+      "label": "baby",
+      "en": [
+        "baby"
+      ],
+      "hi": [
+        "शिशु"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "CHILD",
+      "label": "child",
+      "en": [
+        "child",
+        "children"
+      ],
+      "hi": [
+        "बच्चा",
+        "बच्ची"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "BOY",
+      "label": "boy",
+      "en": [
+        "boy"
+      ],
+      "hi": [
+        "लड़का"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "GIRL",
+      "label": "girl",
+      "en": [
+        "girl"
+      ],
+      "hi": [
+        "लड़की"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "MAN",
+      "label": "man",
+      "en": [
+        "man"
+      ],
+      "hi": [
+        "आदमी",
+        "पुरुष"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "WOMAN",
+      "label": "woman",
+      "en": [
+        "woman"
+      ],
+      "hi": [
+        "महिला",
+        "औरत"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "PEOPLE",
+      "label": "people",
+      "en": [
+        "people"
+      ],
+      "hi": [
+        "लोग"
+      ],
+      "category": "people"
+    },
+    {
+      "gloss": "DAY",
+      "label": "day",
+      "en": [
+        "day"
+      ],
+      "hi": [
+        "दिन"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "NIGHT",
+      "label": "night",
+      "en": [
+        "night"
+      ],
+      "hi": [
+        "रात"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "AFTERNOON",
+      "label": "afternoon",
+      "en": [
+        "afternoon"
+      ],
+      "hi": [
+        "दोपहर"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "EVENING",
+      "label": "evening",
+      "en": [
+        "evening"
+      ],
+      "hi": [
+        "शाम"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "TOMORROW",
+      "label": "tomorrow",
+      "en": [
+        "tomorrow"
+      ],
+      "hi": [
+        "आने वाला कल"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "YESTERDAY",
+      "label": "yesterday",
+      "en": [
+        "yesterday"
+      ],
+      "hi": [
+        "बीता हुआ कल"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "NOW",
+      "label": "now",
+      "en": [
+        "now"
+      ],
+      "hi": [
+        "अभी"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "LATER",
+      "label": "later",
+      "en": [
+        "later"
+      ],
+      "hi": [
+        "बाद में"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "TIME",
+      "label": "time",
+      "en": [
+        "time"
+      ],
+      "hi": [
+        "समय"
+      ],
+      "category": "time"
+    },
+    {
+      "gloss": "YEAR",
+      "label": "year",
+      "en": [
+        "year"
+      ],
+      "hi": [
+        "साल",
+        "वर्ष"
+      ],
+      "category": "time"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "I want water",
+      "hi": "मुझे पानी चाहिए",
+      "glosses": [
+        "I",
+        "WANT",
+        "WATER"
+      ]
+    },
+    {
+      "en": "I want a book",
+      "hi": "मुझे किताब चाहिए",
+      "glosses": [
+        "I",
+        "WANT",
+        "BOOK"
+      ]
+    },
+    {
+      "en": "I like school",
+      "hi": "मुझे स्कूल पसंद है",
+      "glosses": [
+        "I",
+        "LIKE",
+        "SCHOOL"
+      ]
+    },
+    {
+      "en": "I like books",
+      "hi": "मुझे किताबें पसंद हैं",
+      "glosses": [
+        "I",
+        "LIKE",
+        "BOOK"
+      ]
+    },
+    {
+      "en": "I drink water",
+      "hi": "मैं पानी पीता हूँ",
+      "glosses": [
+        "I",
+        "DRINK",
+        "WATER"
+      ]
+    },
+    {
+      "en": "I want to learn",
+      "hi": "मैं सीखना चाहता हूँ",
+      "glosses": [
+        "I",
+        "WANT",
+        "LEARN"
+      ]
+    },
+    {
+      "en": "I want tea",
+      "hi": "मुझे चाय चाहिए",
+      "glosses": [
+        "I",
+        "WANT",
+        "TEA"
+      ]
+    },
+    {
+      "en": "I want coffee",
+      "hi": "मुझे कॉफी चाहिए",
+      "glosses": [
+        "I",
+        "WANT",
+        "COFFEE"
+      ]
+    },
+    {
+      "en": "I drink milk",
+      "hi": "मैं दूध पीती हूँ",
+      "glosses": [
+        "I",
+        "DRINK",
+        "MILK"
+      ]
+    },
+    {
+      "en": "I like apples",
+      "hi": "मुझे सेब पसंद है",
+      "glosses": [
+        "I",
+        "LIKE",
+        "APPLE"
+      ]
+    }
+  ]
+}

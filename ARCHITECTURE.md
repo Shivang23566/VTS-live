@@ -1,5 +1,10 @@
 # ShikshaSign Live architecture
 
+> This document describes the retained **legacy ISL video-library mode**. The
+> default view is now an ASL landmark-driven avatar with a required Python
+> backend. See [ANIMATION_ARCHITECTURE.md](./ANIMATION_ARCHITECTURE.md). Switching
+> modes clears both queues; `AnimationView` now renders coordinates, not video.
+
 ## Product boundary
 
 The MVP supports one science lesson ("Plants"), live English/Hindi captions, and

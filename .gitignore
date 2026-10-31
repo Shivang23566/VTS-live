@@ -22,3 +22,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Local Python environment, downloaded datasets, and runtime state
+.venv/
+.cache/
+.pytest_cache/
+**/__pycache__/
+*.pyc
+backend/data/*.sqlite3*
+backend/data/downloads/
+backend/data/slt-assets/
+backend/data/landmarks/
+.env

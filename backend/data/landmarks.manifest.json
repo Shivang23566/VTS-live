@@ -1,0 +1,714 @@
+{
+  "source": "https://zenodo.org/records/6674324",
+  "checksum_md5": "cd73156728bbc3ad1d016a5decc5c6ec",
+  "sign_language": "asl",
+  "clips": [
+    {
+      "gloss": "HELLO",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/hello-001.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9944,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "GOOD-MORNING",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/good_morning-005.pkl",
+      "frames": 13,
+      "mean_confidence": 0.9971,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "MORNING",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/morning-005.pkl",
+      "frames": 21,
+      "mean_confidence": 0.8093,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BOOK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/book-004.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9352,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "DRINK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/drink-006.pkl",
+      "frames": 22,
+      "mean_confidence": 0.9974,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "EAT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/eat-007.pkl",
+      "frames": 25,
+      "mean_confidence": 0.9975,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "LIKE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/like-004.pkl",
+      "frames": 12,
+      "mean_confidence": 0.9988,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "LEARN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/learn-001.pkl",
+      "frames": 18,
+      "mean_confidence": 0.972,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "I",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/ix_1p-007.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9932,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "NAME",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/name-002.pkl",
+      "frames": 21,
+      "mean_confidence": 0.9983,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SCHOOL",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/school-003.pkl",
+      "frames": 13,
+      "mean_confidence": 0.9965,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SIT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sit-003.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9985,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SUN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sun-003.pkl",
+      "frames": 35,
+      "mean_confidence": 0.9955,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WANT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/want-003.pkl",
+      "frames": 14,
+      "mean_confidence": 0.9948,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WATER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/water-003.pkl",
+      "frames": 19,
+      "mean_confidence": 0.9972,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "YES",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/yes-001.pkl",
+      "frames": 15,
+      "mean_confidence": 0.9949,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SORRY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sorry-001.pkl",
+      "frames": 42,
+      "mean_confidence": 0.9981,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WELCOME",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/welcome-001.pkl",
+      "frames": 21,
+      "mean_confidence": 0.5362,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WHAT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/what-001.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9983,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WHERE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/where-001.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9954,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WHEN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/when-002.pkl",
+      "frames": 20,
+      "mean_confidence": 0.995,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WHY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/why-004.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9963,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HOW",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/how-003.pkl",
+      "frames": 14,
+      "mean_confidence": 0.9983,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WHO",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/who-001.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9924,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "AGAIN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/again-008.pkl",
+      "frames": 38,
+      "mean_confidence": 0.992,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "STOP",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/stop-001.pkl",
+      "frames": 14,
+      "mean_confidence": 0.6507,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "STAND",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/stand-004.pkl",
+      "frames": 21,
+      "mean_confidence": 0.9123,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WALK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/walk-002.pkl",
+      "frames": 28,
+      "mean_confidence": 0.9822,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "RUN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/run-007.pkl",
+      "frames": 33,
+      "mean_confidence": 0.998,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "GO",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/go-004.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9981,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "COME",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/come-002.pkl",
+      "frames": 12,
+      "mean_confidence": 0.9987,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "THIRSTY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/thirsty-001.pkl",
+      "frames": 18,
+      "mean_confidence": 0.7037,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BREAD",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/bread-003.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9244,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "MILK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/milk-002.pkl",
+      "frames": 22,
+      "mean_confidence": 0.9981,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TEA",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/tea-002.pkl",
+      "frames": 21,
+      "mean_confidence": 0.7781,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "COFFEE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/coffee-002.pkl",
+      "frames": 36,
+      "mean_confidence": 0.9952,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "APPLE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/apple-005.pkl",
+      "frames": 22,
+      "mean_confidence": 0.9978,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BANANA",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/banana-001.pkl",
+      "frames": 28,
+      "mean_confidence": 0.9978,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "ORANGE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/orange-004.pkl",
+      "frames": 24,
+      "mean_confidence": 0.9965,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "EGG",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/egg-006.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9979,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "FRUIT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/fruit-004.pkl",
+      "frames": 13,
+      "mean_confidence": 0.9987,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "VEGETABLE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/vegetable-002.pkl",
+      "frames": 17,
+      "mean_confidence": 0.9938,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "MEAT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/meat-005.pkl",
+      "frames": 27,
+      "mean_confidence": 0.9981,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "FISH",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/fish-003.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9951,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "POTATO",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/potato-004.pkl",
+      "frames": 28,
+      "mean_confidence": 0.9992,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TOMATO",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/tomato-001.pkl",
+      "frames": 17,
+      "mean_confidence": 0.9952,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SALT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/salt-001.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9967,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HOT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/hot-001.pkl",
+      "frames": 17,
+      "mean_confidence": 0.9724,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "COLD",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/cold-002.pkl",
+      "frames": 22,
+      "mean_confidence": 0.998,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WARM",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/warm-001.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9932,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HOME",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/home-003.pkl",
+      "frames": 12,
+      "mean_confidence": 0.9984,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HOUSE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/house-006.pkl",
+      "frames": 29,
+      "mean_confidence": 0.8729,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "DOOR",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/door-004.pkl",
+      "frames": 39,
+      "mean_confidence": 0.9966,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WINDOW",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/window-001.pkl",
+      "frames": 25,
+      "mean_confidence": 0.9949,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TABLE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/table-001.pkl",
+      "frames": 18,
+      "mean_confidence": 0.548,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BED",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/bed-001.pkl",
+      "frames": 15,
+      "mean_confidence": 0.5507,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "READ",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/read-004.pkl",
+      "frames": 16,
+      "mean_confidence": 0.9621,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WRITE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/write-004.pkl",
+      "frames": 21,
+      "mean_confidence": 0.9762,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "PAPER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/paper-003.pkl",
+      "frames": 19,
+      "mean_confidence": 0.9506,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "PENCIL",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/pencil-001.pkl",
+      "frames": 19,
+      "mean_confidence": 0.9752,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WORK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/work-002.pkl",
+      "frames": 27,
+      "mean_confidence": 0.9972,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "PLAY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/play-005.pkl",
+      "frames": 24,
+      "mean_confidence": 0.9952,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SLEEP",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sleep-003.pkl",
+      "frames": 17,
+      "mean_confidence": 0.9948,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HAVE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/have-006.pkl",
+      "frames": 17,
+      "mean_confidence": 0.9988,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "GIVE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/give-003.pkl",
+      "frames": 22,
+      "mean_confidence": 0.9777,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TAKE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/take-001.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9944,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SEE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/see-001.pkl",
+      "frames": 11,
+      "mean_confidence": 0.9969,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TALK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/talk-002.pkl",
+      "frames": 16,
+      "mean_confidence": 0.6373,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "UNDERSTAND",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/understand-002.pkl",
+      "frames": 19,
+      "mean_confidence": 0.9932,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "KNOW",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/know-003.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9973,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "FORGET",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/forget-001.pkl",
+      "frames": 15,
+      "mean_confidence": 0.9977,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "REMEMBER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/remember-001.pkl",
+      "frames": 25,
+      "mean_confidence": 0.9796,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "THINK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/think-001.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9938,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HAPPY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/happy-006.pkl",
+      "frames": 25,
+      "mean_confidence": 0.9994,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SAD",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sad-004.pkl",
+      "frames": 18,
+      "mean_confidence": 0.9976,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TIRED",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/tired-001.pkl",
+      "frames": 25,
+      "mean_confidence": 0.9578,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SICK",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sick-001.pkl",
+      "frames": 21,
+      "mean_confidence": 0.9978,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "HURT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/hurt-006.pkl",
+      "frames": 24,
+      "mean_confidence": 0.9983,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "FRIEND",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/friend-004.pkl",
+      "frames": 14,
+      "mean_confidence": 0.9869,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "FAMILY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/family-002.pkl",
+      "frames": 30,
+      "mean_confidence": 0.9932,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "MOTHER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/mother-002.pkl",
+      "frames": 14,
+      "mean_confidence": 0.9038,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "FATHER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/father-004.pkl",
+      "frames": 22,
+      "mean_confidence": 0.9984,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "SISTER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/sister-001.pkl",
+      "frames": 16,
+      "mean_confidence": 0.9163,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BROTHER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/brother-004.pkl",
+      "frames": 30,
+      "mean_confidence": 0.9684,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BABY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/baby-004.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9954,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "CHILD",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/child-001.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9536,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "BOY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/boy-007.pkl",
+      "frames": 15,
+      "mean_confidence": 0.9993,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "GIRL",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/girl-005.pkl",
+      "frames": 14,
+      "mean_confidence": 0.9963,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "MAN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/man-010.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9109,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "WOMAN",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/woman-005.pkl",
+      "frames": 15,
+      "mean_confidence": 0.968,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "PEOPLE",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/people-002.pkl",
+      "frames": 27,
+      "mean_confidence": 0.997,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "DAY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/day-001.pkl",
+      "frames": 15,
+      "mean_confidence": 0.9688,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "NIGHT",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/night-002.pkl",
+      "frames": 23,
+      "mean_confidence": 0.9967,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "AFTERNOON",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/afternoon-007.pkl",
+      "frames": 20,
+      "mean_confidence": 0.9986,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "EVENING",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/evening-001.pkl",
+      "frames": 16,
+      "mean_confidence": 0.9923,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TOMORROW",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/tomorrow-001.pkl",
+      "frames": 13,
+      "mean_confidence": 0.8953,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "YESTERDAY",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/yesterday-003.pkl",
+      "frames": 26,
+      "mean_confidence": 0.9959,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "NOW",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/now-007.pkl",
+      "frames": 29,
+      "mean_confidence": 0.9978,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "LATER",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/later-001.pkl",
+      "frames": 17,
+      "mean_confidence": 0.9434,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "TIME",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/time-001.pkl",
+      "frames": 15,
+      "mean_confidence": 0.9954,
+      "playback_fps": 25
+    },
+    {
+      "gloss": "YEAR",
+      "sample": "ASLLVD-Skeleton/PKL_POSES/year-001.pkl",
+      "frames": 25,
+      "mean_confidence": 0.9258,
+      "playback_fps": 25
+    }
+  ]
+}
