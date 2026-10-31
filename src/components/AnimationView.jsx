@@ -38,11 +38,9 @@ export default function AnimationView({
     <section className="player-panel animation-view">
       <div className="animation-view-header">
         <p className="eyebrow">2D Teacher Animation Preview</p>
-        {isPlayingAnim && (
-          <span className="anim-badge active">
-            ⚡ Signing Animation Active
-          </span>
-        )}
+        <span className={`anim-badge ${isPlayingAnim ? "active" : "idle"}`}>
+          {isPlayingAnim ? "⚡ Signing Animation Active" : "⏸ Idle (Static Pose)"}
+        </span>
       </div>
 
       <div className="anim-stage">

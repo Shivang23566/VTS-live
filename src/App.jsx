@@ -5,6 +5,7 @@ import LiveCaptions from "./components/LiveCaptions";
 import Microphone from "./components/Microphone";
 import LandingPage from "./components/LandingPage";
 import AnimationView from "./components/AnimationView";
+import CustomCursor from "./components/CustomCursor";
 import dictionary from "./data/signDictionary.json";
 import { findConceptMatch } from "./lib/conceptMatcher";
 import { useSpeechRecognition } from "./hooks/useSpeechRecognition";
@@ -32,52 +33,61 @@ export default function App() {
 
   // ---------- Landing page (scroll animation) ----------
   if (!showClassroom) {
-    return <LandingPage onEnter={() => setShowClassroom(true)} />;
+    return (
+      <>
+        <CustomCursor />
+        <LandingPage onEnter={() => setShowClassroom(true)} />
+      </>
+    );
   }
 
   const isAnimationMode = viewMode === "animation";
 
   // ---------- Classroom ----------
   return (
-    <ClassroomMode>
-      <section className="controls" aria-label="Lecture controls">
-        <label>
-          Speech language
-          <select value={language} onChange={(event) => setLanguage(event.target.value)} disabled={speech.isRecording}>
-            <option value="en-IN">English</option>
-            <option value="hi-IN">हिन्दी</option>
-          </select>
-        </label>
+    <>
+      <CustomCursor />
+      <ClassroomMode>
+        <section className="controls" aria-label="Lecture controls">
+          <label>
+            Speech language
+            <select value={language} onChange={(event) => setLanguage(event.target.value)} disabled={speech.isRecording}>
+              <option value="en-IN">English</option>
+              <option value="hi-IN">हिन्दी</option>
+            </select>
+          </label>
+          <span className="lesson-label">Science · Lesson 01 · Plants</span>
 
-        {/* Mode Toggle Button */}
-        <button
-          className={`button ${isAnimationMode ? "mode-btn-caption" : "mode-btn-anim"}`}
-          onClick={() => setViewMode(isAnimationMode ? "captions" : "animation")}
-        >
-          {isAnimationMode ? "Switch to Video / Captions" : "Switch to 2D Animation"}
-        </button>
+          {/* Mode Toggle Button */}
+          <button
+            className={`button ${isAnimationMode ? "mode-btn-caption" : "mode-btn-anim"}`}
+            onClick={() => setViewMode(isAnimationMode ? "captions" : "animation")}
+          >
+            {isAnimationMode ? "Switch to Video / Captions" : "Switch to 2D Animation"}
+          </button>
 
-        <Microphone {...speech} onStart={speech.start} onStop={speech.stop} />
-      </section>
+          <Microphone {...speech} onStart={speech.start} onStop={speech.stop} />
+        </section>
 
-      <section className="classroom-grid">
-        {isAnimationMode ? (
-          <>
-            <AnimationView
-              finalTranscript={finalTranscript}
-              interimTranscript={speech.interimTranscript}
-              pendingVideo={pendingVideo}
-              onResetVideo={handleResetVideo}
-            />
-            <LiveCaptions finalTranscript={finalTranscript} interimTranscript={speech.interimTranscript} />
-          </>
-        ) : (
-          <>
-            <ISLPlayer pendingVideo={pendingVideo} />
-            <LiveCaptions finalTranscript={finalTranscript} interimTranscript={speech.interimTranscript} />
-          </>
-        )}
-      </section>
-    </ClassroomMode>
+        <section className="classroom-grid">
+          {isAnimationMode ? (
+            <>
+              <AnimationView
+                finalTranscript={finalTranscript}
+                interimTranscript={speech.interimTranscript}
+                pendingVideo={pendingVideo}
+                onResetVideo={handleResetVideo}
+              />
+              <LiveCaptions finalTranscript={finalTranscript} interimTranscript={speech.interimTranscript} />
+            </>
+          ) : (
+            <>
+              <ISLPlayer pendingVideo={pendingVideo} />
+              <LiveCaptions finalTranscript={finalTranscript} interimTranscript={speech.interimTranscript} />
+            </>
+          )}
+        </section>
+      </ClassroomMode>
+    </>
   );
 }
