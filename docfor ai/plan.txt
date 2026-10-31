@@ -1,0 +1,41 @@
+
+6. Implementation Plan (24-Hour Sprint)
+Phase 1: Setup & Assets (Hours 0–3)
+
+Initialize the React + Vite project.
+
+Download 15-20 relevant .mp4 sign clips (e.g., water, plants, sunlight) and place them in the public/ directory.
+
+Create the signDictionary.json mapping.
+
+Phase 2: Core Engineering (Hours 3–8)
+
+Implement the SpeechRecognition API in React.
+
+Build the Start/Stop UI.
+
+Verify that English and Hindi (hi-IN) transcripts log accurately to the console when spoken into the laptop microphone.
+
+Phase 3: Logic & Display (Hours 8–13)
+
+Write the matching function (Frontend JS or Python API) that connects the final transcript to the JSON dictionary.
+
+Build the ISLPlayer component to play the corresponding .mp4 file when a match is found.
+
+Implement the "Safe Fallback": Ensure the app gracefully does nothing (except update captions) if an unknown word is spoken.
+
+Phase 4: Classroom UI & Polish (Hours 13–18)
+
+Style the application with Tailwind CSS for a dual-panel layout (Video on the left, large captions on the bottom right).
+
+Add a "Classroom Mode" button that triggers the browser's Fullscreen API.
+
+Test the HDMI connection on a secondary monitor or TV to simulate the projector setup.
+
+Phase 5: Testing, Hardening & Pitch Prep (Hours 18–24)
+
+Test Cases: Speak exact phrases, speak synonyms, speak completely unsupported sentences (to prove the fallback works), and test in a noisy environment.
+
+Deploy: Push the frontend. If using FastAPI, deploy to Render and verify API connections.
+
+Demo Rehearsal: Practice the 4-minute pitch. Start with the problem, show a live supported sentence, immediately show an unsupported sentence safely falling back to captions, and present your measured latency and WER metrics.

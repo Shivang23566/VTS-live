@@ -1,0 +1,26 @@
+3. Tech Stack
+To move fast during a 24-hour sprint, we will prioritize a lightweight, local-first architecture.
+
+Frontend (Core Engine):
+
+Framework: React + Vite (Fast compilation, easy to set up).
+
+Styling: Tailwind CSS (Rapid UI development for the dual-panel projector layout).
+
+Speech Processing: Native Browser Web Speech API (window.SpeechRecognition). No external API keys needed for the MVP.
+
+Development Speed: Utilize Cursor AI to rapidly generate the React boilerplate, UI components, and state management hooks.
+
+Backend & Integration (Option B - If scaling beyond local JSON):
+
+Framework: Python 3 with FastAPI.
+
+Use Case: If the local Javascript keyword matching isn't robust enough, a FastAPI service can handle multilingual embeddings or fuzzy text matching.
+
+Deployment: Deploy the FastAPI service on Render for reliable, free-tier hosting during the hackathon.
+
+Data & Assets:
+
+Dictionary: A local signDictionary.json mapping string keywords to video file paths.
+
+Assets: .mp4 video clips sourced from the ISLRTC dictionary, stored locally in the frontend public/signs/ folder for zero-latency playback.

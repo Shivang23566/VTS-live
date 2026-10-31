@@ -1,0 +1,12 @@
+5. Backend Guidelines (FastAPI)
+Note: For the 24-hour MVP, stick to Option A (Frontend-only with local JSON) if possible. If you need smarter phrase matching, implement this lightweight backend.
+
+Architecture:
+
+Endpoint: A single POST /match endpoint that accepts a text string and returns a JSON object with the matched video_id or null.
+
+Matching Logic: Instead of hardcoded JS arrays, use Python's thefuzz (FuzzyWuzzy) or a lightweight local NLP library to compare the incoming transcript against your dictionary of 30 phrases. This handles slight variations in the teacher's speech (e.g., "plants need sun" vs "plants need sunlight").
+
+Statelessness: The backend should not store session data. It is purely a text-in, video-ID-out function.
+
+CORS: Ensure CORSMiddleware is configured in FastAPI to accept requests from your local Vite dev server (localhost:5173) and your deployed frontend URL.

@@ -1,0 +1,34 @@
+1. Product Requirements Document (PRD)
+Project Name: ShikshaSign Live (Working Title for ISL Connect)
+Target: GRAVITON 2026 (Problem Statement #30)
+Core Objective: A browser-based classroom accessibility platform that listens to a teacher's lecture, displays live captions, and presents curriculum-specific Indian Sign Language (ISL) animations/videos on a smart TV or projector.Target Audience: Deaf and hard-of-hearing students, government school teachers, and special educators.
+
+Scope & MVP (Minimum Viable Product):
+
+Curriculum Limit: One complete science lesson (e.g., "Plants").
+
+Vocabulary: 20–30 supported educational phrases/concepts (e.g., "sunlight", "water", "plants need sunlight").
+
+Safety First: No hallucinated signs. If the system does not recognize a supported concept, it falls back to text captions only.
+
+Core Features (Must-Haves):
+
+Teacher Microphone Input: Captures live audio in Hindi/English.
+
+Live Captions: Real-time speech-to-text displayed on screen.
+
+Concept Matching Engine: Maps recognized text to the approved ISL lesson library.
+
+ISL Playback: Plays pre-validated ISL video clips or animations.
+
+Fullscreen Projector Mode: Optimized dual-panel UI for classroom Smart TVs/Projectors.
+
+Safe Fallback: Captions-only mode for unsupported phrases.
+
+Success Metrics (For the Pitch):
+
+Speech Word Error Rate (WER): ≤25% in quiet conditions.
+
+Sign Phrase Precision: ≥90% for supported phrases.
+
+End-to-End Latency: ≤4 seconds.

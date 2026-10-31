@@ -1,0 +1,26 @@
+[
+  {
+    "id": "plants-need-sunlight",
+    "lessonId": "science-plants",
+    "phrase": "plants need sunlight",
+    "aliases": ["plants need sun", "plant needs sunlight"],
+    "video": "/signs/plants-need-sunlight.mp4",
+    "reviewed": true
+  },
+  {
+    "id": "plants-need-water",
+    "lessonId": "science-plants",
+    "phrase": "plants need water",
+    "aliases": ["plant needs water"],
+    "video": "/signs/plants-need-water.mp4",
+    "reviewed": true
+  },
+  {
+    "id": "plant",
+    "lessonId": "science-plants",
+    "phrase": "plant",
+    "aliases": ["plants"],
+    "video": "/signs/plant.mp4",
+    "reviewed": true
+  }
+]

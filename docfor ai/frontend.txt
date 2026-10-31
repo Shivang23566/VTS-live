@@ -1,0 +1,20 @@
+4. Frontend Guidelines
+Component Architecture:
+
+App.jsx: Manages global state (isRecording, currentTranscript, activeVideo).
+
+Microphone.jsx: Handles the SpeechRecognition API, requests permissions, and emits transcript strings.
+
+LiveCaptions.jsx: Receives the transcript stream and renders it with high-contrast typography.
+
+ISLPlayer.jsx: An HTML5 <video> element that watches an activeVideo prop. When the prop changes, the video auto-plays.
+
+ClassroomMode.jsx: The layout wrapper. Uses the Fullscreen API to expand the UI across a connected projector display.
+
+State Management & Logic:
+
+Debouncing: Do not run the concept-matching function on every interim transcript frame. Only trigger the matching engine when result.isFinal is true.
+
+Queueing: If a teacher speaks two supported concepts rapidly, the ISLPlayer should queue the video files rather than interrupting the first video halfway through.
+
+UI/UX Constraints: Use a stark, high-contrast color palette (e.g., dark background, yellow/white text) so captions are readable from the back of a brightly lit classroom.

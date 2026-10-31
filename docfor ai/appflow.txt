@@ -1,0 +1,16 @@
+2. App Flow (User Journey)
+Setup Phase: The teacher opens the web application on their laptop and connects to the classroom projector via HDMI or screen mirroring.
+
+Initialization: The teacher selects the language (English or Hindi-IN), selects the lesson module ("Science - Lesson 01: Plants"), and clicks "Start Lecture".
+
+Capture & Transcribe: The browser requests microphone permissions and begins capturing audio. The Web Speech API returns interim and final transcripts.
+
+Live Captioning: As the teacher speaks, live text appears in the caption panel on the projector screen.
+
+Concept Matching: The final transcript string is passed to the matching engine. It scans for keywords or synonyms (e.g., "plants need sunlight").
+
+Action/Display:
+
+Match Found: The corresponding verified ISL video clip (.mp4) is pushed to the video queue and plays in the main panel.
+
+No Match Found: The UI simply continues displaying the live captions without interrupting the visual flow or showing an incorrect sign.
