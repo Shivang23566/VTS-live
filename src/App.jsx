@@ -3,6 +3,7 @@ import ClassroomMode from "./components/ClassroomMode";
 import ISLPlayer from "./components/ISLPlayer";
 import LiveCaptions from "./components/LiveCaptions";
 import Microphone from "./components/Microphone";
+import LandingPage from "./components/LandingPage";
 import dictionary from "./data/signDictionary.json";
 import { findConceptMatch } from "./lib/conceptMatcher";
 import { useSpeechRecognition } from "./hooks/useSpeechRecognition";
@@ -10,6 +11,7 @@ import { useSpeechRecognition } from "./hooks/useSpeechRecognition";
 const LESSON_ID = "science-plants";
 
 export default function App() {
+  const [showClassroom, setShowClassroom] = useState(false);
   const [language, setLanguage] = useState("en-IN");
   const [finalTranscript, setFinalTranscript] = useState("");
   const [pendingVideo, setPendingVideo] = useState(null);
@@ -22,6 +24,12 @@ export default function App() {
 
   const speech = useSpeechRecognition({ language, onFinalTranscript: handleFinalTranscript });
 
+  // ---------- Landing page (scroll animation) ----------
+  if (!showClassroom) {
+    return <LandingPage onEnter={() => setShowClassroom(true)} />;
+  }
+
+  // ---------- Classroom ----------
   return (
     <ClassroomMode>
       <section className="controls" aria-label="Lecture controls">

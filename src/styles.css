@@ -40,3 +40,113 @@ select { padding: .55rem; border: 1px solid #64748b; border-radius: .45rem; colo
   .player-panel, .captions-panel { min-height: auto; }
   .caption-final { margin-top: 2rem; }
 }
+
+
+/* ========== Scroll-driven animation ========== */
+
+.scroll-anim-wrapper {
+  position: relative;
+  /* Height determines how long the user must scroll to play all 70 frames.
+     70 frames × 60px = 4200px gives a comfortable pace. */
+  height: 4200px;
+}
+
+.scroll-anim-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.scroll-anim-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.scroll-anim-loader {
+  position: absolute;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.scroll-anim-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+}
+
+.scroll-anim-progress-bar {
+  height: 100%;
+  background: #facc15;
+  transition: width 0.05s linear;
+}
+
+.scroll-anim-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  color: #facc15;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ========== Landing page ========== */
+
+.landing {
+  background: #07111f;
+  color: #f8fafc;
+}
+
+.landing-hero {
+  text-align: center;
+  padding: 6rem 2rem 2rem;
+}
+
+.landing-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 0.5rem 0;
+  line-height: 1.15;
+}
+
+.landing-title .highlight {
+  color: #facc15;
+}
+
+.landing-subtitle {
+  max-width: 38rem;
+  margin: 1rem auto 0;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.landing-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 4rem 2rem 6rem;
+  text-align: center;
+}
+
+.landing-cta-heading {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  margin: 0;
+}
