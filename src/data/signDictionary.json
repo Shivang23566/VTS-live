@@ -16,27 +16,43 @@
     "reviewed": true
   },
   {
-    "id": "plants-need-sunlight",
+    "id": "Plants make food because they have sunlight and water.",
     "lessonId": "science-plants",
-    "phrase": "plants need sunlight",
-    "aliases": ["plants need sun", "plant needs sunlight"],
-    "video": "/signs/plants-need-sunlight.mp4",
+    "phrase": "Plants make food because they have sunlight and water.",
+    "aliases": [],
+    "video": "/signs/Plants make food because they have sunlight and water..mp4",
     "reviewed": true
   },
   {
-    "id": "plants-need-water",
+    "id": "Leaves take in sunlight and roots take in water",
     "lessonId": "science-plants",
-    "phrase": "plants need water",
-    "aliases": ["plant needs water"],
-    "video": "/signs/plants-need-water.mp4",
+    "phrase": "Leaves take in sunlight and roots take in water",
+    "aliases": [],
+    "video": "/signs/Leaves take in sunlight and roots take in water.mp4",
     "reviewed": true
   },
   {
-    "id": "plant",
+    "id": "Today we will learn about plants",
     "lessonId": "science-plants",
-    "phrase": "plant",
-    "aliases": ["plants"],
-    "video": "/signs/plant.mp4",
+    "phrase": "Today we will learn about plants",
+    "aliases": [],
+    "video": "/signs/Today we will learn about plants.mp4",
+    "reviewed": true
+  },
+  {
+    "id": "SIT DOWN",
+    "lessonId": "general",
+    "phrase": "SIT DOWN",
+    "aliases": [],
+    "video": "/signs/SIT DOWN.mp4",
+    "reviewed": true
+  },
+  {
+    "id": "GOOD MORNING",
+    "lessonId": "general",
+    "phrase": "GOOD MORNING",
+    "aliases": [],
+    "video": "/signs/GOOD MORNING.mp4",
     "reviewed": true
   }
 ]

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const TOTAL_FRAMES = 70;
 
@@ -8,7 +8,7 @@ const framePaths = Array.from({ length: TOTAL_FRAMES }, (_, i) => {
   return `/animation/ezgif-frame-${num}.png`;
 });
 
-export default function ScrollAnimation({ onProgress }) {
+export default function ScrollAnimation({ onProgress, children, anchors = [] }) {
   const wrapperRef = useRef(null);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -22,13 +22,13 @@ export default function ScrollAnimation({ onProgress }) {
 
     framePaths.forEach((src) => {
       const img = new Image();
-      img.src = src;
       const done = () => {
         count++;
         if (!cancelled && count >= TOTAL_FRAMES) setLoaded(true);
       };
       img.onload = done;
       img.onerror = done;
+      img.src = src;
     });
 
     return () => { cancelled = true; };
@@ -71,6 +71,15 @@ export default function ScrollAnimation({ onProgress }) {
 
   return (
     <div ref={wrapperRef} className="scroll-anim-wrapper">
+      {anchors.map(({ id, target }) => (
+        <span
+          key={id}
+          id={id}
+          className="story-anchor"
+          aria-hidden="true"
+          style={{ top: `calc(${target * 100}% - ${target * 100}vh)` }}
+        />
+      ))}
       <div className="scroll-anim-sticky">
         {!loaded && (
           <div className="scroll-anim-loader">
@@ -80,9 +89,12 @@ export default function ScrollAnimation({ onProgress }) {
 
         <img
           src={src}
-          alt={`Animation frame ${currentFrame + 1}`}
+          alt="Classroom animation"
           className="scroll-anim-img"
+          draggable={false}
         />
+
+        {typeof children === "function" ? children(progress) : children}
 
         {/* Progress bar */}
         <div className="scroll-anim-progress">
@@ -93,8 +105,8 @@ export default function ScrollAnimation({ onProgress }) {
         </div>
 
         {/* Scroll hint */}
-        {progress < 0.03 && (
-          <p className="scroll-anim-hint">↓ Scroll to explore</p>
+        {!children && progress < 0.03 && (
+          <p className="scroll-anim-hint">Scroll to explore</p>
         )}
       </div>
     </div>

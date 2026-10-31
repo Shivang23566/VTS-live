@@ -1,111 +1,84 @@
-import { useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
+import { landingChapters } from "../data/landingChapters";
 
 /**
- * Atticus Finch–style transparent navigation.
- * Centre logo with rule, 3 links left, 3 right.
- * Purely visual — link handlers and destinations preserved from original.
+ * Text-only navigation. Anchors seek to the matching moment in the animation.
  */
-export default function Nav({ onEnter }) {
+export default function Nav({ activeId, onEnter }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const headerRef = useRef(null);
+  const toggleRef = useRef(null);
 
-  const toggleMobile = useCallback(() => {
-    setMobileOpen((v) => !v);
-  }, []);
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
 
-  const closeMobile = useCallback(() => {
-    setMobileOpen(false);
-  }, []);
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const onPointerDown = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMobileOpen(false);
+    };
+    const onWideScreen = (event) => {
+      if (event.matches) setMobileOpen(false);
+    };
+    const wideScreen = window.matchMedia("(min-width: 1001px)");
 
-  const links = [
-    { label: "About", href: "#about" },
-    { label: "How It Works", href: "#how" },
-    { label: "Features", href: "#features" },
-    { label: "Demo", href: "#demo" },
-    { label: "Research", href: "#research" },
-    { label: "Classroom", href: "#classroom", onClick: onEnter },
-  ];
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    wideScreen.addEventListener("change", onWideScreen);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+      wideScreen.removeEventListener("change", onWideScreen);
+    };
+  }, [mobileOpen]);
 
-  const leftLinks = links.slice(0, 3);
-  const rightLinks = links.slice(3);
+  const renderLinks = () => landingChapters.map((chapter) => (
+    <a
+      key={chapter.id}
+      href={`#${chapter.id}`}
+      className="project-nav-link"
+      aria-current={activeId === chapter.id ? "location" : undefined}
+      onClick={() => setMobileOpen(false)}
+    >
+      {chapter.navLabel}
+    </a>
+  ));
 
   return (
-    <>
-      <nav className="site-nav" aria-label="Main navigation">
-        <div className="nav-inner">
-          {/* Left links */}
-          {leftLinks.map((link) => (
-            <a
-              key={link.label}
-              className="nav-link"
-              href={link.href}
-              onClick={link.onClick ? (e) => { e.preventDefault(); link.onClick(); } : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
-
-          {/* Centre logo */}
-          <div className="nav-logo-wrapper">
-            <span className="nav-logo-text">ShikshaSign</span>
-            <span className="nav-rule">
-              <span className="nav-rule-star">✦</span>
-              <span className="nav-rule-line" />
-              <span className="nav-rule-star">✦</span>
-            </span>
-          </div>
-
-          {/* Right links */}
-          {rightLinks.map((link) => (
-            <a
-              key={link.label}
-              className="nav-link"
-              href={link.href}
-              onClick={link.onClick ? (e) => { e.preventDefault(); link.onClick(); } : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
-
-          {/* Mobile toggle */}
-          <button
-            className="nav-mobile-toggle"
-            onClick={toggleMobile}
-            aria-label="Open menu"
-            aria-expanded={mobileOpen}
-          >
-            ☰
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile overlay */}
-      <div
-        className={`nav-mobile-overlay ${mobileOpen ? "open" : ""}`}
-        onClick={closeMobile}
-        aria-hidden="true"
-      />
-
-      {/* Mobile slide-in panel */}
-      <div className={`nav-mobile-panel ${mobileOpen ? "open" : ""}`}>
-        <button className="nav-mobile-close" onClick={closeMobile} aria-label="Close menu">✕</button>
-        {links.map((link) => (
-          <a
-            key={link.label}
-            className="nav-link"
-            href={link.href}
-            onClick={(e) => {
-              closeMobile();
-              if (link.onClick) {
-                e.preventDefault();
-                link.onClick();
-              }
-            }}
-          >
-            {link.label}
-          </a>
-        ))}
+    <header className="project-header" ref={headerRef}>
+      <div className="project-header-row">
+        <a className="project-wordmark" href="#about" onClick={() => setMobileOpen(false)}>
+          ShikhsaSign
+        </a>
+        <nav className="project-nav-desktop" aria-label="Main navigation">
+          {renderLinks()}
+        </nav>
+        <button className="project-nav-enter" onClick={onEnter}>Enter classroom</button>
+        <button
+          ref={toggleRef}
+          className="project-menu-toggle"
+          type="button"
+          aria-controls="project-mobile-nav"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((open) => !open)}
+        >
+          {mobileOpen ? "Close" : "Menu"}
+        </button>
       </div>
-    </>
+      <nav
+        className="project-nav-mobile"
+        id="project-mobile-nav"
+        aria-label="Mobile navigation"
+        hidden={!mobileOpen}
+      >
+        {renderLinks()}
+        <button className="project-mobile-enter" onClick={onEnter}>Enter classroom</button>
+      </nav>
+    </header>
   );
 }
 

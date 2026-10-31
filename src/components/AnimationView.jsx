@@ -1,103 +1,64 @@
-import { useState, useEffect, useRef } from "react";
+import SignVideo from "./SignVideo";
 
-/**
- * Animation view — shows the 2D Teacher model (Asha from the video).
- * - When idle / waiting: displays the clean static model pose extracted from the video.
- * - When the phrase "hello today we will learn about sign language" is detected (or test button clicked):
- *   seamlessly transitions into playing the actual animated sign language video in place!
- * - When video finishes, seamlessly returns to static pose.
- */
 export default function AnimationView({
   finalTranscript,
   interimTranscript,
-  pendingVideo,
-  onResetVideo,
+  current,
+  queuedCount,
+  onComplete,
+  onFailure,
+  onClear,
 }) {
-  const videoRef = useRef(null);
-  const [isPlayingAnim, setIsPlayingAnim] = useState(false);
-
-  // When a concept video is matched, play the animation
-  useEffect(() => {
-    if (pendingVideo?.video) {
-      setIsPlayingAnim(true);
-    }
-  }, [pendingVideo]);
-
-  // Handle video ended
-  const handleVideoEnded = () => {
-    setIsPlayingAnim(false);
-    if (onResetVideo) {
-      onResetVideo();
-    }
-  };
-
-  const displayText = finalTranscript || "Your lesson captions will appear here.";
-  const matchedSign = pendingVideo?.phrase;
-
   return (
     <section className="player-panel animation-view">
       <div className="animation-view-header">
-        <p className="eyebrow">2D Teacher Animation Preview</p>
-        <span className={`anim-badge ${isPlayingAnim ? "active" : "idle"}`}>
-          {isPlayingAnim ? "⚡ Signing Animation Active" : "⏸ Idle (Static Pose)"}
+        <p className="eyebrow">2D Teacher Animation</p>
+        <span className={`anim-badge ${current ? "active" : "idle"}`}>
+          {current ? "Sign matched" : "Ready"}
         </span>
       </div>
 
       <div className="anim-stage">
-        {/* Speech Bubble */}
         <div className="speech-bubble">
-          <p className="speech-text">{displayText}</p>
-          {interimTranscript && (
-            <p className="speech-interim">{interimTranscript}</p>
-          )}
-          {matchedSign && (
-            <p className="speech-sign">
-              🤟 Detected: <strong>{matchedSign}</strong>
-            </p>
+          <p className="speech-text">{finalTranscript || "Speak a video title to see its animation."}</p>
+          {interimTranscript && <p className="speech-interim">{interimTranscript}</p>}
+          {current && (
+            <p className="speech-sign">Now showing: <strong>{current.phrase}</strong></p>
           )}
         </div>
 
-        {/* Character / Animation Container */}
         <div className="character-display-box">
-          {isPlayingAnim && pendingVideo?.video ? (
-            <div className="video-player-wrapper">
-              <video
-                ref={videoRef}
-                className="asha-live-video"
-                src={pendingVideo.video}
-                autoPlay
-                playsInline
-                onEnded={handleVideoEnded}
-              />
-              <button
-                className="exit-anim-btn"
-                onClick={handleVideoEnded}
-                title="Return to static model"
-              >
-                ✕ Return to Static Model
-              </button>
-            </div>
+          {current ? (
+            <SignVideo
+              key={current.playbackId}
+              clip={current}
+              className="asha-live-video"
+              onComplete={onComplete}
+              onFailure={onFailure}
+            />
           ) : (
             <div className="static-model-wrapper">
-              <img
-                src="/asha-model-static.png"
-                alt="2D Sign Language Model"
-                className="asha-model-img"
-              />
+              <img src="/asha-model-static.png" alt="2D sign language teacher, ready" className="asha-model-img" />
               <div className="static-model-overlay">
-                <span className="static-model-tag">Asha 2D Model (Ready)</span>
+                <span className="static-model-tag">Ready for the next phrase</span>
               </div>
             </div>
           )}
         </div>
 
-        {/* Status / Instructions */}
-        <div className="anim-footer-note">
-          <span className={`anim-dot ${isPlayingAnim ? "active" : ""}`} />
-          {isPlayingAnim
-            ? "Playing animated sign language translation..."
-            : "Listening for sign concepts"}
+        <div className="sign-playback-actions">
+          {current && (
+            <button className="button secondary" onClick={() => onComplete(current.playbackId)}>
+              {queuedCount ? "Skip to next video" : "Return to static model"}
+            </button>
+          )}
+          {queuedCount > 0 && <button className="button secondary" onClick={onClear}>Stop playback</button>}
         </div>
+        <p className="queue-status" role="status">
+          {current
+            ? `${queuedCount} more video${queuedCount === 1 ? "" : "s"} queued. Videos start muted.`
+            : "A matching video will appear here. Unmatched speech stays in captions."}
+        </p>
       </div>
     </section>
   );

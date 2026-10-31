@@ -2,9 +2,10 @@
 
 ## Product boundary
 
-The MVP supports one science lesson ("Plants"), 20–30 approved concepts, live
-English/Hindi captions, and verified local ISL media. It must never generate or
-guess a sign. An unmatched phrase updates captions only.
+The MVP supports one science lesson ("Plants"), live English/Hindi captions, and
+local ISL media. The current library contains five supplied title-based videos
+plus the original hello demo; 20–30 concepts remains a future content target.
+It must never generate or guess a sign. Unmatched speech updates captions only.
 
 ## Folder division
 
@@ -37,11 +38,17 @@ VTS-live/
 1. `App` selects the lesson and speech language.
 2. `useSpeechRecognition` adapts browser events into interim/final text.
 3. Interim text is rendered immediately; it is never matched.
-4. A final transcript is passed to `findConceptMatch`.
-5. Only an exact approved phrase, approved synonym, or safe token match
-   returns a dictionary entry.
-6. `ISLPlayer` appends the clip to a FIFO queue and never interrupts a clip.
-7. No match means no video action and no error shown to learners.
+4. Each final transcript is passed to `createTranscriptParser().push`.
+5. The parser normalizes case/punctuation and matches complete titles, IDs, or
+   explicitly configured aliases at word boundaries. It chooses the longest
+   match at each position and returns all matches in spoken order. Only a trailing
+   unfinished title prefix is retained between results, with a 12-second expiry.
+6. `useSignPlayback` stores the FIFO queue in `App`, shared by `AnimationView` and
+   `ISLPlayer`. Unique playback IDs allow repeat clips and reject stale end/error
+   events. `SignVideo` handles muted autoplay, manual-play fallback, and failures.
+7. `TranscriptTester` uses the stateless `findConceptMatches` entry point to test
+   the same matching rules without contaminating the live speech buffer.
+8. No match means no new video action; any already-playing clip can finish.
 
 ## Data contracts
 
@@ -49,34 +56,39 @@ Dictionary entries have this shape:
 
 ```json
 {
-  "id": "plants-need-sunlight",
+  "id": "Today we will learn about plants",
   "lessonId": "science-plants",
-  "phrase": "plants need sunlight",
-  "aliases": ["plants need sun"],
-  "video": "/signs/plants-need-sunlight.mp4",
+  "phrase": "Today we will learn about plants",
+  "aliases": [],
+  "video": "/signs/Today we will learn about plants.mp4",
   "reviewed": true
 }
 ```
 
-`reviewed` is required. The matcher ignores entries without it, making an
-unreviewed asset impossible to play accidentally.
+`reviewed: true` enables an entry. Newly supplied IDs and phrases equal the source
+filename minus `.mp4`. `lessonId: "general"` makes greetings and classroom commands
+available in every lesson. Playback resolves only entries in this local catalogue;
+transcript text is never used to construct a file path. Asset tests ensure enabled
+entries refer to existing MP4 files.
 
 ## Optional backend contract
 
-When local matching is insufficient, the frontend can replace
-`findConceptMatch` with:
+The included backend is an optional, separate single-match template; the browser
+does not call it. Before replacing the local parser, it must adopt the same
+normalization, general-lesson, multiple-match, and streaming behavior. Its current
+request/response contract is:
 
 ```http
 POST /match
 Content-Type: application/json
 
-{"text":"plants need sun","lesson_id":"science-plants","language":"en-IN"}
+{"text":"Today we will learn about plants","lesson_id":"science-plants","language":"en-IN"}
 ```
 
 Response:
 
 ```json
-{"matched":true,"concept_id":"plants-need-sunlight"}
+{"matched":true,"concept_id":"Today we will learn about plants"}
 ```
 
 An unsupported phrase returns `{"matched":false,"concept_id":null}`. The

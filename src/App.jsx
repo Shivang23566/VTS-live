@@ -5,40 +5,73 @@ import LiveCaptions from "./components/LiveCaptions";
 import Microphone from "./components/Microphone";
 import LandingPage from "./components/LandingPage";
 import AnimationView from "./components/AnimationView";
+import TranscriptTester from "./components/TranscriptTester";
 import CustomCursor from "./components/CustomCursor";
 import dictionary from "./data/signDictionary.json";
-import { findConceptMatch } from "./lib/conceptMatcher";
+import { createTranscriptParser, findConceptMatches, getLessonVideos } from "./lib/conceptMatcher";
 import { useSpeechRecognition } from "./hooks/useSpeechRecognition";
+import { useSignPlayback } from "./hooks/useSignPlayback";
 
 const LESSON_ID = "science-plants";
+const LESSON_VIDEOS = getLessonVideos(dictionary, LESSON_ID);
 
 export default function App() {
   const [showClassroom, setShowClassroom] = useState(false);
   const [viewMode, setViewMode] = useState("animation"); // Default to animation mode so user can see it right away!
   const [language, setLanguage] = useState("en-IN");
   const [finalTranscript, setFinalTranscript] = useState("");
-  const [pendingVideo, setPendingVideo] = useState(null);
+  const [matchStatus, setMatchStatus] = useState("");
+  const [playbackError, setPlaybackError] = useState("");
+  const [parser] = useState(() => createTranscriptParser(dictionary, LESSON_ID));
+  const { current, queuedCount, enqueue, advance, clear } = useSignPlayback();
+
+  const queueMatches = useCallback((matches) => {
+    enqueue(matches);
+    setMatchStatus(matches.length
+      ? `Matched ${matches.length} video${matches.length === 1 ? "" : "s"}: ${matches.map((match) => match.phrase).join("; ")}`
+      : "No complete video title matched. Captions continue while you speak.");
+    if (matches.length) setPlaybackError("");
+  }, [enqueue]);
 
   const handleFinalTranscript = useCallback((transcript) => {
     setFinalTranscript(transcript);
-    const match = findConceptMatch(transcript, dictionary, LESSON_ID);
-    if (match) setPendingVideo({ ...match, queuedAt: Date.now() });
-  }, []);
+    queueMatches(parser.push(transcript));
+  }, [parser, queueMatches]);
 
   const speech = useSpeechRecognition({ language, onFinalTranscript: handleFinalTranscript });
 
-  const handleResetVideo = () => {
-    setPendingVideo(null);
+  const handleTestTranscript = (transcript) => {
+    setFinalTranscript(transcript);
+    queueMatches(findConceptMatches(transcript, dictionary, LESSON_ID));
+  };
+
+  const handleStart = () => {
+    parser.reset();
+    clear();
+    setPlaybackError("");
+    speech.start();
+  };
+  const handleStop = () => {
+    speech.stop();
+    parser.reset();
+    clear();
+  };
+  const handlePlaybackFailure = useCallback((clip) => {
+    setPlaybackError(`Could not load or decode "${clip.phrase}". This video was skipped; captions remain available.`);
+    advance(clip.playbackId);
+  }, [advance]);
+
+  const playerProps = {
+    current,
+    queuedCount,
+    onComplete: advance,
+    onFailure: handlePlaybackFailure,
+    onClear: clear,
   };
 
   // ---------- Landing page (scroll animation) ----------
   if (!showClassroom) {
-    return (
-      <>
-        <CustomCursor />
-        <LandingPage onEnter={() => setShowClassroom(true)} />
-      </>
-    );
+    return <LandingPage onEnter={() => setShowClassroom(true)} />;
   }
 
   const isAnimationMode = viewMode === "animation";
@@ -51,7 +84,7 @@ export default function App() {
         <section className="controls" aria-label="Lecture controls">
           <label>
             Speech language
-            <select value={language} onChange={(event) => setLanguage(event.target.value)} disabled={speech.isRecording}>
+            <select value={language} onChange={(event) => { parser.reset(); setLanguage(event.target.value); }} disabled={speech.isRecording}>
               <option value="en-IN">English</option>
               <option value="hi-IN">हिन्दी</option>
             </select>
@@ -66,8 +99,11 @@ export default function App() {
             {isAnimationMode ? "Switch to Video / Captions" : "Switch to 2D Animation"}
           </button>
 
-          <Microphone {...speech} onStart={speech.start} onStop={speech.stop} />
+          <Microphone {...speech} onStart={handleStart} onStop={handleStop} />
         </section>
+
+        <TranscriptTester videos={LESSON_VIDEOS} onTest={handleTestTranscript} status={matchStatus} />
+        {playbackError && <p className="video-error" role="alert">{playbackError}</p>}
 
         <section className="classroom-grid">
           {isAnimationMode ? (
@@ -75,14 +111,13 @@ export default function App() {
               <AnimationView
                 finalTranscript={finalTranscript}
                 interimTranscript={speech.interimTranscript}
-                pendingVideo={pendingVideo}
-                onResetVideo={handleResetVideo}
+                {...playerProps}
               />
               <LiveCaptions finalTranscript={finalTranscript} interimTranscript={speech.interimTranscript} />
             </>
           ) : (
             <>
-              <ISLPlayer pendingVideo={pendingVideo} />
+              <ISLPlayer {...playerProps} />
               <LiveCaptions finalTranscript={finalTranscript} interimTranscript={speech.interimTranscript} />
             </>
           )}
