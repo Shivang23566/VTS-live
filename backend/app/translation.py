@@ -1,4 +1,4 @@
-"""ASL adapters for sltAI's interfaces; never instantiate its PSL provider.
+"""ASL adapters for a bounded classroom vocabulary.
 
 This is a bounded vocabulary composer, not a trained/general ASL grammar model.
 Explicit bilingual sentence patterns are experimental and need linguistic review.
@@ -10,7 +10,19 @@ import unicodedata
 from pathlib import Path
 
 os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parents[2] / ".cache/matplotlib"))
-from sign_language_translator.languages import TextLanguage, SignLanguage
+
+try:
+    from sign_language_translator.languages import TextLanguage, SignLanguage
+except ImportError:
+    class TextLanguage:
+        """Minimal interface required by the classroom text adapter."""
+
+    class SignLanguage:
+        """Minimal sign mapping helper used by the local ASL adapter."""
+
+        @staticmethod
+        def _make_equal_weight_sign_dict(signs):
+            return {"signs": signs}
 
 LEXICON = json.loads(Path(__file__).with_name("lexicon.json").read_text(encoding="utf-8"))
 

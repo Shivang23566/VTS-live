@@ -1,9 +1,8 @@
 # Live ASL animation backend
 
-Python 3.11 is required. This service uses the local sltAI extension interfaces
-with an ASL vocabulary adapter and real ASLLVD MediaPipe coordinates. It never
-instantiates the bundled PSL provider. The default animation mode needs this
-service; the separate legacy ISL video-library mode does not.
+Python 3.11 is required. This service uses a local ASL vocabulary adapter and real ASLLVD MediaPipe
+coordinates. The default animation mode needs this service; the separate legacy
+ISL video-library mode does not.
 
 Run from the **repository root**, in PowerShell:
 
@@ -19,9 +18,9 @@ uv pip install --python .venv/Scripts/python.exe -r requirements.txt pytest http
 .venv/Scripts/python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 
-The `sltai/sign-language-translator` checkout must exist. Python dependencies and
-the 101-sign dataset are already prepared in this workspace. The source archive
-download is about 264 MB; subsequent imports reuse it. See
+Python dependencies and the 101-sign dataset are prepared locally by the setup
+commands. The source archive download is about 264 MB;
+subsequent imports reuse it. See
 [data provenance and timing limitations](./data/README.md).
 
 The frontend dev server proxies `/api` and `/ws` to port 8000. Keep Vite on 5173,

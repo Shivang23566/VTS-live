@@ -4,15 +4,11 @@ The default animation view now renders an articulated WebGL character from
 streamed skeletal coordinates. It no longer loads an MP4 or the static Asha
 image. The separately labeled ISL video-library mode remains available.
 
-## Scope and what sltAI supplies
+## Scope and vocabulary adapter
 
-The inspected local library is `sltai/sign-language-translator`, version 0.8.1
-(local checkout `cca5f3a`). Its built-in sign provider and published sltAI motion
-dataset are PSL. The user's requested target is ASL, excluding PSL. Therefore
-the backend implements `ClassroomTextLanguage(TextLanguage)` and
-`ASLVocabulary(SignLanguage)` against sltAI's extension interfaces, with an
-external ASLLVD landmark dataset. Neither the PSL factory nor its datasets are
-used. The upstream checkout is not modified.
+The backend implements a local `ClassroomTextLanguage` and `ASLVocabulary`
+adapter with an external ASLLVD landmark dataset. It does not depend on a
+third-party provider or download PSL assets.
 
 This is **rule-based gloss composition plus ML-extracted motion**, not a trained
 general-purpose speech-to-motion model. It supports 101 distinct signs, 117
@@ -27,7 +23,7 @@ are not solved. The interface labels the avatar as experimental.
 | Boundary | Implementation |
 | --- | --- |
 | Speech input | Existing browser Web Speech hook; only final text is sent |
-| Gloss translation | `backend/app/translation.py`, sltAI subclasses; `lexicon.json` owns aliases and examples |
+| Gloss translation | `backend/app/translation.py`, local ASL adapter; `lexicon.json` owns aliases and examples |
 | Landmark database | `backend/app/landmarks.py`, SQLite, ASL-only records with provenance |
 | Import | `backend/scripts/prepare_asl.py`, verified ASLLVD archive, restricted data reader |
 | Preparation | `backend/app/service.py`, resolves every gloss before streaming; missing data rejects the whole request |
@@ -42,7 +38,7 @@ are not solved. The interface labels the avatar as experimental.
 flowchart LR
     Speech[Browser speech recognition] --> Text[Final transcript]
     Text --> WS[WebSocket]
-    WS --> Gloss[sltAI ASL adapters]
+    WS --> Gloss[ASL gloss adapter]
     Gloss --> DB[(SQLite landmarks)]
     DB --> Chunks[Ordered frame chunks]
     Chunks --> Queue[Validated browser queue]

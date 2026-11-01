@@ -13,7 +13,7 @@ and **135 Hindi aliases**. Search its vocabulary for greetings, food/drinks,
 family, feelings, objects, actions, places, questions and time. Try `I want water`,
 `I want a pencil`, `मुझे दूध चाहिए`, or individual words such as `mother` and `coffee`.
 
-The decoupled pipeline is: final transcript → sltAI-compatible ASL gloss adapter
+The decoupled pipeline is: final transcript → local ASL gloss adapter
 → SQLite landmark library → WebSocket frame chunks → articulated WebGL avatar.
 Adaptive filtering, interpolation and short transitions smooth motion; the UI
 provides playback speed controls. The avatar has individual finger bones.
@@ -43,8 +43,7 @@ the launcher reuses it; that server remains managed by its original terminal.
 
 For a new installation, perform this one-time setup first:
 
-Use Python **3.11**. The local `sltai/sign-language-translator` checkout must
-exist (version 0.8.1, inspected revision `cca5f3a`). Run from the repository root:
+Use Python **3.11**. Run from the repository root:
 
 ```powershell
 uv venv --python 3.11 .venv
@@ -97,8 +96,8 @@ From the repository root:
 python -m pip install -r requirements.txt
 ```
 
-The root requirements file installs FastAPI and local sltAI. Python is required
-for the ASL avatar, but not for the legacy video library. See
+The root requirements file installs FastAPI and Uvicorn. Python is required for
+the ASL avatar, but not for the legacy video library. See
 [`backend/README.md`](./backend/README.md).
 
 Open the printed local URL in Chrome or Edge, allow microphone access, select
@@ -161,3 +160,25 @@ landmarks, streaming order, cancellation, invalid data and motion smoothing.
 
 See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for boundaries, data flow, safety
 rules, extension points, and the optional backend contract.
+
+## Deploy to Render
+
+The repository includes [`render.yaml`](./render.yaml) for a single Render web
+service. It installs the Python and JavaScript dependencies, downloads and
+prepares the ASL landmark catalogue during the build, builds the Vite frontend,
+and serves the frontend plus the API/WebSocket from FastAPI.
+
+After creating the service from the blueprint:
+
+1. Set `SIGN_ALLOWED_ORIGINS` to the service URL, for example
+   `https://shikshasign-live.onrender.com`.
+2. Deploy or redeploy after saving the environment variable.
+3. Check `https://YOUR-SERVICE.onrender.com/api/health`.
+4. Open the service URL in Chrome or Edge and test the text example before
+   testing microphone permissions.
+
+The first build downloads the ASLLVD skeleton archive (about 264 MB) and can
+take several minutes. Render's free service may sleep when idle; the first
+request after sleeping can therefore be slow. The avatar remains experimental,
+and public deployment should add authentication, TLS, workload limits, and
+dataset licensing review before production use.

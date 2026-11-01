@@ -12,7 +12,12 @@ class Settings:
     )))
     origins: tuple[str, ...] = field(default_factory=lambda: tuple(
         item.strip() for item in os.getenv(
-            "SIGN_ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"
+            "SIGN_ALLOWED_ORIGINS",
+            ",".join(filter(None, [
+                "http://localhost:5173",
+                "http://127.0.0.1:5173",
+                os.getenv("RENDER_EXTERNAL_URL", ""),
+            ])),
         ).split(",") if item.strip()
     ))
     max_pending: int = 8

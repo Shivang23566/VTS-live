@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager, suppress
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ValidationError
 
 from .config import ROOT, Settings
@@ -160,6 +161,10 @@ def create_app(settings=None, service=None):
             if any(phrase.lower() in normalized for phrase in [entry["phrase"], *entry.get("aliases", [])]):
                 return {"matched": True, "concept_id": entry["id"]}
         return {"matched": False, "concept_id": None}
+
+    frontend = ROOT / "dist"
+    if frontend.is_dir():
+        app.mount("/", StaticFiles(directory=frontend, html=True), name="frontend")
 
     return app
 

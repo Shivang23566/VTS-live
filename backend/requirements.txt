@@ -1,4 +1,3 @@
 fastapi>=0.115,<1
 uvicorn[standard]>=0.30,<1
-# Run from backend/ using Python 3.11.
--e ../sltai/sign-language-translator
+numpy>=1.26,<3
