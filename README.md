@@ -28,6 +28,21 @@ identifies the actual ASLLVD source and provisional playback timing.
 
 ### Start the complete app
 
+For everyday use in this prepared workspace, run **one command**:
+
+```powershell
+npm.cmd run dev
+```
+
+Open `http://127.0.0.1:5173`. Keep that terminal open. The launcher starts Python,
+checks that the local sign data is ready, then starts the page. It automatically
+restarts Python after an unexpected exit (up to three restarts in a minute).
+The page reconnects automatically; there is no reconnect button. Ctrl+C stops
+both services owned by the launcher. If a healthy Python server already exists,
+the launcher reuses it; that server remains managed by its original terminal.
+
+For a new installation, perform this one-time setup first:
+
 Use Python **3.11**. The local `sltai/sign-language-translator` checkout must
 exist (version 0.8.1, inspected revision `cca5f3a`). Run from the repository root:
 
@@ -35,19 +50,25 @@ exist (version 0.8.1, inspected revision `cca5f3a`). Run from the repository roo
 uv venv --python 3.11 .venv
 uv pip install --python .venv/Scripts/python.exe -r requirements.txt pytest httpx
 .venv/Scripts/python.exe -m backend.scripts.prepare_asl --download
-.venv/Scripts/python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+npm.cmd install
 ```
 
 Preparation downloads about 264 MB once and imports the selected ASL poses.
-The environment and data are already prepared in this workspace. In a second terminal:
+The environment and data are already prepared in this workspace. Then run:
 
 ```powershell
-npm.cmd install
-npm.cmd run dev -- --host 127.0.0.1 --port 5173 --strictPort
+npm.cmd run dev
 ```
 
 Open `http://127.0.0.1:5173`, enter the classroom and use **Try the live ASL avatar**.
 The text test needs no microphone; live speech uses Chrome/Edge recognition.
+Text-to-sign generation uses local Python and local coordinates without a cloud
+API. Browser microphone transcription is separate and is not guaranteed offline.
+After a connection interruption, wait for **Ready on this laptop** and repeat the
+phrase; old speech is deliberately not replayed. Missing dependencies/data or
+repeated process failures are reported in the terminal, not hidden by retries.
+For frontend-only development with Python managed separately, use
+`npm.cmd run dev:frontend`.
 
 ## Legacy ISL video library
 

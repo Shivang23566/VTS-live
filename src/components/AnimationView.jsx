@@ -9,7 +9,7 @@ export default function AnimationView({ animation, onFailure }) {
       <div className="animation-view-header">
         <p className="eyebrow">Live ASL avatar</p>
         <span className={`anim-badge ${current ? "active" : "idle"}`}>
-          {current ? "Signing" : connection === "connected" ? "Connected" : "Offline"}
+          {current ? "Signing" : connection === "connected" ? (catalog?.ready ? "Ready on this laptop" : "Sign data missing") : connection === "connecting" ? "Starting / recovering" : "Unavailable"}
         </span>
       </div>
       <AvatarCanvas clip={current} speed={speed} onComplete={animation.advance} onFailure={onFailure} />
@@ -23,9 +23,10 @@ export default function AnimationView({ animation, onFailure }) {
           </select>
         </label>
         {(current || pending > 0) && <button className="button secondary" onClick={animation.cancel}>Stop animation</button>}
-        {connection !== "connected" && <button className="button secondary" onClick={animation.reconnect}>Reconnect animation</button>}
       </div>
-      <p className="queue-status" role="status">{current ? `${queuedCount} signs queued` : pending ? "Preparing motion…" : "Choose an example or speak a supported phrase."}</p>
+      <p className="queue-status" role="status">{connection !== "connected" || !catalog?.ready
+        ? animation.status || "Starting the local animation service…"
+        : current ? `${queuedCount} signs queued` : pending ? "Preparing motion…" : "Choose an example or speak a supported phrase."}</p>
       <p className="animation-disclosure">{catalog?.notice || "Experimental American Sign Language avatar. Captions remain the primary transcript."}</p>
     </section>
   );

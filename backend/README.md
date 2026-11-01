@@ -7,6 +7,11 @@ service; the separate legacy ISL video-library mode does not.
 
 Run from the **repository root**, in PowerShell:
 
+For normal use after setup, `npm.cmd run dev` starts and supervises Python plus
+the frontend together. The page reconnects automatically if the connection drops.
+Keep the terminal open. The commands below are one-time setup plus an optional
+standalone backend launch for developers:
+
 ```powershell
 uv venv --python 3.11 .venv
 uv pip install --python .venv/Scripts/python.exe -r requirements.txt pytest httpx

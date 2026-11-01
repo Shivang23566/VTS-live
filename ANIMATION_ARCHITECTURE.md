@@ -71,6 +71,14 @@ and clears queued requests. The client also invalidates its local request IDs
 immediately, so delayed frames cannot restart a stopped lecture. No transcript
 is automatically replayed on reconnect. Separate sockets do not share queues.
 
+`animationConnection.js` reconnects automatically with 1/2/4/8/10-second delays,
+a 30-second handshake deadline, and cleanup on mode changes/unmount. It detaches
+old sockets and clears their motion queues; users repeat interrupted phrases.
+`npm run dev` uses `scripts/dev.mjs` to start the local Python process, await a
+healthy ASL catalog, then start Vite on port 5173. Unexpected Python exits are
+restarted, limited to three restarts per minute. Startup errors fail visibly.
+This is process recovery, not a guarantee against all crashes or hung processes.
+
 Limits: 1200 transcript characters, 32 signs, 2400 frames per request, eight
 pending requests per connection and 4800 buffered client frames. Preparation has
 a 20-second timeout; the browser has a 30-second request timeout. Origin checks
