@@ -41,7 +41,8 @@ The page reconnects automatically; there is no reconnect button. Ctrl+C stops
 both services owned by the launcher. If a healthy Python server already exists,
 the launcher reuses it; that server remains managed by its original terminal.
 
-For a new installation, perform this one-time setup first:
+For a new installation, perform this one-time setup first. If you see
+`Python environment is missing`, the `.venv` setup has not been completed:
 
 Use Python **3.11**. Run from the repository root:
 

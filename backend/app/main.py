@@ -17,6 +17,22 @@ from .translation import TranslationUnavailable
 logger = logging.getLogger(__name__)
 
 
+def origin_is_allowed(websocket, settings):
+    origin = websocket.headers.get("origin", "").rstrip("/")
+    if not origin:
+        return False
+    if origin in settings.origins:
+        return True
+
+    # Render serves the frontend and WebSocket from the same public host.
+    # The proxy forwards the original host and scheme in these headers.
+    host = websocket.headers.get("x-forwarded-host") or websocket.headers.get("host")
+    scheme = websocket.headers.get("x-forwarded-proto", "").split(",")[0].strip()
+    if host and scheme in {"http", "https"}:
+        return origin == f"{scheme}://{host}".rstrip("/")
+    return False
+
+
 def create_app(settings=None, service=None):
     settings = settings or Settings()
 
@@ -42,7 +58,14 @@ def create_app(settings=None, service=None):
     @app.websocket("/ws/animation")
     async def animation(websocket: WebSocket):
         # CORSMiddleware does not validate WebSocket origins.
-        if websocket.headers.get("origin") not in settings.origins:
+        if not origin_is_allowed(websocket, settings):
+            logger.warning(
+                "Rejected WebSocket origin=%r host=%r forwarded_host=%r forwarded_proto=%r",
+                websocket.headers.get("origin"),
+                websocket.headers.get("host"),
+                websocket.headers.get("x-forwarded-host"),
+                websocket.headers.get("x-forwarded-proto"),
+            )
             await websocket.close(code=1008)
             return
         await websocket.accept()

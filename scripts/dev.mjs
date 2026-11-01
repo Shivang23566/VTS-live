@@ -90,7 +90,12 @@ async function startBackend() {
 }
 
 async function main() {
-  if (!existsSync(python) || !existsSync(vite)) throw new Error("Local dependencies are missing. Follow the one-time setup in README.md first.");
+  if (!existsSync(python)) {
+    throw new Error("Python environment is missing. Run the one-time setup from README.md: uv venv --python 3.11 .venv, then install requirements.");
+  }
+  if (!existsSync(vite)) {
+    throw new Error("Node dependencies are missing. Run npm.cmd install, then retry npm.cmd run dev.");
+  }
   if (!await portFree(5173)) throw new Error("Port 5173 is already in use. Use the existing app, or stop that server before starting another.");
   if (!await portFree(8000)) {
     if (!await health()) throw new Error("Port 8000 is occupied by an unready or different service. Check that process before restarting.");
