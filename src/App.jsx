@@ -112,7 +112,7 @@ export default function App() {
               <option value="hi-IN">हिन्दी</option>
             </select>
           </label>
-          <span className="lesson-label">{isAnimationMode ? "American Sign Language · Experimental avatar" : "Indian Sign Language · Plants video library"}</span>
+          {!isAnimationMode && <span className="lesson-label">Indian Sign Language</span>}
 
           {/* Mode Toggle Button */}
           <button
